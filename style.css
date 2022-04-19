@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --body-bg: hsl(217, 54%, 11%);
+  --card-bg: hsl(216, 50%, 16%);
+  --line: hsl(215, 32%, 27%);
+}
+body {
+  display: grid;
+  font-size: 18px;
+  background: var(--body-bg);
+  font-family: 'Outfit', 'sans-serif';
+  place-items: center;
+  min-height: 100vh;
+}
+.card {
+  width: 18.5rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.image-container {
+  width: 100%;
+  height: 16rem;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+.image-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--cyan);
+  opacity: 0;
+  transition: 0.5s opacity;
+}
+
+.image-container:hover::before {
+  opacity: 0.3;
+}
+
+.image-container .equilibrium {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-container .eye-icon {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.5s 0.2s opacity;
+}
+.image-container:hover .eye-icon {
+  opacity: 1;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+.content h4 {
+  color: #fff;
+}
+.content > p {
+  color: var(--soft-blue);
+  font-weight: 300;
+}
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.price::before {
+  content: '';
+  position: absolute;
+  bottom: -0.6rem;
+  width: 100%;
+  border-bottom: 1px solid var(--line);
+}
+
+.price p,
+.price small {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.price p {
+  color: var(--cyan);
+}
+.price small {
+  color: var(--soft-blue);
+}
+.creator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.creator img {
+  width: 2.5rem;
+}
+.creator p {
+  color: var(--soft-blue);
+  font-weight: 300;
+}
+.creator p span {
+  color: #fff;
+}
